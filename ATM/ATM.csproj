@@ -43,13 +43,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Application.cs" />
-    <Compile Include="PasscodeValidator.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Exception Handler\CustomException.cs" />
+    <Compile Include="Enum\LanguageList.cs" />
+    <Compile Include="Interfaces\ILanguageTranslator.cs" />
+    <Compile Include="Runners\Application.cs" />
+    <Compile Include="Runners\PasscodeValidator.cs" />
+    <Compile Include="Runners\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Transaction.cs" />
+    <Compile Include="Runners\TransactionService.cs" />
     <Compile Include="User.cs" />
-    <Compile Include="Withdrawal.cs" />
+    <Compile Include="Runners\WithdrawalMenu.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

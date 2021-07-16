@@ -12,6 +12,6 @@ namespace ATM
         public static string lastName = "Snow";
         public static string fullName = $"{firstName} {lastName}";
         public static string passcode = "1234";
-        public static decimal accountBalance = 20000.83M;
+        public static int accountBalance = 150000;
     }
 }
