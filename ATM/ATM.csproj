@@ -48,10 +48,8 @@
     <Compile Include="Interfaces\ILanguageTranslator.cs" />
     <Compile Include="Runners\Application.cs" />
     <Compile Include="Runners\PasscodeValidator.cs" />
-    <Compile Include="Runners\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Runners\TransactionService.cs" />
-    <Compile Include="User.cs" />
     <Compile Include="Runners\WithdrawalMenu.cs" />
   </ItemGroup>
   <ItemGroup>
