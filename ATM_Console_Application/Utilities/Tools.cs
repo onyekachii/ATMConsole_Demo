@@ -1,10 +1,14 @@
-﻿using ATM_Console_Application.Utilities.Enumerators;
+﻿using ATM_Console_Application.Custom_Exceptions;
+using ATM_Console_Application.Utilities.Enumerators;
+using Data;
+using Data.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Transaction_Library;
 
 namespace ATM_Console_Application.Utilities
 {
@@ -43,8 +47,8 @@ namespace ATM_Console_Application.Utilities
             if (PasscodeInvalid.Success)
             {
                 passwordFailCounter++;
-                Console.WriteLine($"Login fails: {passwordFailCounter}");
-                if (passwordFailCounter < 3)
+                Console.WriteLine($"Login fails: {passwordFailCounter}. The App will shut down after three failed attempts");
+                if (passwordFailCounter < 4)
                 {
                     switch (Convert.ToString(selectedLang))
                     {
@@ -66,24 +70,34 @@ namespace ATM_Console_Application.Utilities
             return true;
         }
 
-        public static void PasscodeValidator()
+        public static void Login(LanguageList selectedLang, string passcode, int passwordFailCounter)
         {
-            var passCodeValidatorErrorMessage = new PassCodeValidatorTransaction();
-            if (Application.Passcode.Trim() != User.passcode)
+            var language = selectedLang.ToString();
+            try
             {
-                Application.passwordFailCounter++;
-                if (Application.passwordFailCounter < 3)
-                {
-                    passCodeValidatorErrorMessage.IRun(selectedLangVar);
-                    Application.Run();
-                }
-                else
-                {
-                    TransactionService.EndTransaction();
-                }
-            }
+                int PIN = int.Parse(passcode);
 
-            TransactionService.Run();
+                var usersObject = new Users();
+                var user = usersObject.AllUsers.Where(u => u.Passcode == PIN).FirstOrDefault();
+
+                if (user is null)
+                {
+                    if (passwordFailCounter < 4)
+                    {
+                        passwordFailCounter++;
+                        throw new NullUserException();
+                    }
+                    else
+                        Environment.Exit(0);
+                }
+                var beginOperation = new Operations(user, language);
+                beginOperation.Run();
+            }            
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                Application.Run();
+            }
         }
     }
 }

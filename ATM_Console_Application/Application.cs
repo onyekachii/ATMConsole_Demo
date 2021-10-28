@@ -39,8 +39,7 @@ namespace ATM_Console_Application
             if (!passwordCheck)
                 goto start;
 
-            Tools.PasscodeValidator();
-            
+            Tools.Login(selectedLang, _passcode, passwordFailCounter);            
         }
 
         
