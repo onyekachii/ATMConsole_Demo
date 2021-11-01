@@ -7,8 +7,14 @@ using System.Threading.Tasks;
 
 namespace ATM_Console_Application.Utilities
 {
-    public static class TransactionTools
+    public class TransactionTools
     {
+        private static  User _user;
+
+        public TransactionTools(User user)
+        {
+            _user = user;
+        }
         internal static void TransactionOptions(string language, User user)
         {
             switch (language)
@@ -43,7 +49,7 @@ namespace ATM_Console_Application.Utilities
                     CheckBalance(user, language);
                     break;
                 case "2":
-                    WithdrawalMenu.Run();
+                    Withdraw(language);
                     break;
                 case "3":
                     EndTransaction();
@@ -74,6 +80,38 @@ namespace ATM_Console_Application.Utilities
         {
             Console.WriteLine("\nTransaction Terminated.\n Thank you for banking with Us.");
             Application.Run();
+        }
+
+        public static void Withdraw(string language)
+        {
+            if (language == "English")
+            {
+                var WithdrawalMenu = new StringBuilder();
+                WithdrawalMenu.AppendLine("\nPlease select your prefered amount:");
+                WithdrawalMenu.AppendLine(" 0: N1,000\n 1: N2,000\n 2: N5,000\n 3: N10,000\n 4:Other");
+                Console.WriteLine(WithdrawalMenu.ToString());
+                var userInput = Console.ReadLine();
+
+                WithdrawalTools.StartWithdrawalTransaction(userInput, language);
+
+                Console.WriteLine($"\nSelect Denomination:\n 1: N500\n 2: N1000");
+                var denomination = Console.ReadLine();
+                WithdrawalTools.CheckBalance(denomination, _user, language);
+            }
+            else if (language == "Pigin")
+            {
+                var WithdrawalMenu = new StringBuilder();
+                WithdrawalMenu.AppendLine("\nAbeg choose your amount wey you wan withdraw:");
+                WithdrawalMenu.AppendLine(" 0: N1,000\n 1: N2,000\n 2: N5,000\n 3: N10,000\n 4:Other");
+                Console.WriteLine(WithdrawalMenu.ToString());
+                var userInput = Console.ReadLine();
+
+                WithdrawalTools.StartWithdrawalTransaction(userInput, language);
+
+                Console.WriteLine($"\nSelect Denomination:\n 1: N500\n 2: N1000");
+                var denomination = Console.ReadLine();
+                WithdrawalTools.CheckBalance(denomination, _user, language);
+            }
         }
     }
 }

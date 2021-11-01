@@ -12,7 +12,7 @@ namespace ATM_Console_Application.Custom_Exceptions
         {
 
         }
-        public NullUserException(string name) : base (String.Format("Enter a valid PIN"))
+        public NullUserException(string name) : base (String.Format(name))
         {
 
         }

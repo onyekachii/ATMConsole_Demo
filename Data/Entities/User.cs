@@ -11,6 +11,6 @@ namespace Data.Entities
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int Passcode { get; set; }
-        public int Balance { get; set; }
+        public double Balance { get; set; }
     }
 }

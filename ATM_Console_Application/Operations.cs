@@ -8,52 +8,30 @@ using System.Threading.Tasks;
 
 namespace ATM_Console_Application
 {
-    sealed public class Operations
+    static public class Operations
     {
-        private decimal _totalSumOf1000NairaDenomination;
-        private decimal _totalSumOf500NairaDenomination;
-        private decimal _totalATMAmount;
-        private string _language;
-        private User _user;
+        private static User _user;
+        public static string Language;
 
-        public decimal TotalSumOf1000NairaDenomination
+        public static double TotalSumOf1000NairaDenomination { get; set; } = 50000;
+
+        public static double TotalSumOf500NairaDenomination { get; set; } = 50000;
+
+        public static User User { get { return _user; } set { _user = value; } }
+
+        public static double TotalATMAmount
         {
-            get { return _totalSumOf1000NairaDenomination; }
-            set
+            get
             {
-                _totalSumOf1000NairaDenomination = 50000;
+                return TotalSumOf500NairaDenomination + TotalSumOf1000NairaDenomination;
             }
         }
 
-        public decimal TotalSumOf500NairaDenomination
-        {
-            get { return _totalSumOf500NairaDenomination; }
-            set
-            {
-                _totalSumOf500NairaDenomination = 50000;
-            }
-        }
 
-        public decimal TotalATMAmount
+        public static void Run()
         {
-            get { return _totalATMAmount; }
-            set
-            {
-                _totalATMAmount = _totalSumOf1000NairaDenomination + _totalSumOf500NairaDenomination;
-            }
-        }
-
-        public Operations()
-        { }
-        public Operations(User user, string language)
-        {
-            _user = user;
-            _language = language;
-        }
-
-        public void Run()
-        {
-            TransactionTools.TransactionOptions(_language, _user);
+            new TransactionTools(_user);
+            TransactionTools.TransactionOptions(Language, _user);
         }
     }
 }

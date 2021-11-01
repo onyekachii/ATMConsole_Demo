@@ -21,7 +21,6 @@ namespace ATM_Console_Application
             { return _passcode; }
             set
             { _passcode = value; }
-
         }
 
         
@@ -35,11 +34,11 @@ namespace ATM_Console_Application
             Tools.LanguageSelection(SelectedLanguageIndex, selectedLang);
 
             Passcode = Console.ReadLine();
-            var passwordCheck = Tools.PasscodeCheckWithRegex(Passcode, passwordFailCounter, selectedLang);
+            var passwordCheck = Tools.PasscodeCheckWithRegex(Passcode, selectedLang);
             if (!passwordCheck)
                 goto start;
 
-            Tools.Login(selectedLang, _passcode, passwordFailCounter);            
+            Tools.Login(selectedLang, _passcode);            
         }
 
         

@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATM", "ATM\ATM.csproj", "{EAC27356-11A8-45AE-8898-E384B0999646}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ATM_Console_Application", "ATM_Console_Application\ATM_Console_Application.csproj", "{582F10C7-1873-4165-B304-AA81A4F74615}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", "{0F8FC068-CC8A-438D-BC7B-1B6BF573061C}"
@@ -15,10 +13,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EAC27356-11A8-45AE-8898-E384B0999646}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EAC27356-11A8-45AE-8898-E384B0999646}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EAC27356-11A8-45AE-8898-E384B0999646}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EAC27356-11A8-45AE-8898-E384B0999646}.Release|Any CPU.Build.0 = Release|Any CPU
 		{582F10C7-1873-4165-B304-AA81A4F74615}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{582F10C7-1873-4165-B304-AA81A4F74615}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{582F10C7-1873-4165-B304-AA81A4F74615}.Release|Any CPU.ActiveCfg = Release|Any CPU

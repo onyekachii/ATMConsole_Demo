@@ -9,7 +9,7 @@ namespace Data
 {
     public class Users
     {
-        public IEnumerable<User> AllUsers = new List<User>()
+        public static IEnumerable<User> AllUsers = new List<User>()
         {
             new User
             {
