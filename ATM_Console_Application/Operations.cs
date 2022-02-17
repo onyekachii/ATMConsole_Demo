@@ -27,10 +27,9 @@ namespace ATM_Console_Application
             }
         }
 
-
         public static void Run()
         {
-            new TransactionTools(_user);
+            var transactionTools = new TransactionTools(_user);
             TransactionTools.TransactionOptions(Language, _user);
         }
     }

@@ -15,7 +15,7 @@ namespace ATM_Console_Application.Utilities
         {
             _user = user;
         }
-        internal static void TransactionOptions(string language, User user)
+        public static void TransactionOptions(string language, User user)
         {
             switch (language)
             {

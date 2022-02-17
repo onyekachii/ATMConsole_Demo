@@ -45,7 +45,7 @@ namespace ATM_Console_Application.Utilities
             if (PasscodeInvalid.Success)
             {
                 Application.passwordFailCounter++;
-                Console.WriteLine($"Login fails: {Application.passwordFailCounter}. The App will shut down after three failed attempts");
+                Console.WriteLine($"Login fails: {Application.passwordFailCounter}. The App will shut down after three failed attempts \n");
                 if (Application.passwordFailCounter < 4)
                 {
                     switch (Convert.ToString(selectedLang))
@@ -81,7 +81,7 @@ namespace ATM_Console_Application.Utilities
                 if (user is null)
                 {
                     Application.passwordFailCounter++;
-                    Console.WriteLine($"Login fails: {Application.passwordFailCounter}. The App will shut down after three failed attempts");
+                    Console.WriteLine($"Login fails: {Application.passwordFailCounter}. The App will shut down after three failed attempts\n");
                     if (Application.passwordFailCounter < 4)                    
                         throw new NullUserException("Enter a valid PIN");                    
                     else

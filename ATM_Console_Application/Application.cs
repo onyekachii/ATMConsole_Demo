@@ -22,7 +22,6 @@ namespace ATM_Console_Application
             set
             { _passcode = value; }
         }
-
         
         public static void Run()
         {

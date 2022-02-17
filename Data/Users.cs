@@ -30,7 +30,7 @@ namespace Data
                 FirstName = "Alex",
                 LastName = "Ogbuike",
                 Passcode = 1236,
-                Balance = 1000
+                Balance = 1500
             }
         };
     }
